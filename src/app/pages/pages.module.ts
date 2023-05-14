@@ -7,7 +7,7 @@ import { CharactersContainerComponent } from './characters/characters-container/
 import { CharactersPresenterComponent } from './characters/characters-presenter/characters-presenter.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { CharacterEffects } from './store/state/marvel/marvel.effects';
+import { CharacterEffects } from './store/state/character/marvel.effects';
 import { pagesReducer } from './store/state/page.reducer';
 import { PAGES_FEATURE_KEY } from './store/state/page.state';
 import { TableModule } from 'primeng/table';
@@ -17,14 +17,15 @@ import { LoadingSpinnerComponent } from 'src/app/shared/components/loading-spinn
 import { ComicsContainerComponent } from './comics/comics-container/comics-container.component';
 import { ComicsPresenterComponent } from './comics/comics-presenter/comics-presenter.component';
 import { DialogModule } from 'primeng/dialog';
+import { LoggedInGuard } from '../auth/guards/logged-in.guard';
 const routes: Routes = [
   {
     path: '',
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'characters', component: CharactersContainerComponent },
-      { path: 'comics', component: ComicsContainerComponent },
+      { path: 'characters', component: CharactersContainerComponent, canActivate: [LoggedInGuard] },
+      { path: 'comics', component: ComicsContainerComponent, canActivate: [LoggedInGuard] },
     ],
   },
 ];
@@ -51,5 +52,8 @@ const priemNgImports = [DialogModule, TableModule, ButtonModule, CardModule];
     StoreModule.forFeature(PAGES_FEATURE_KEY, pagesReducer),
     EffectsModule.forFeature([CharacterEffects]),
   ],
+  providers: [
+    LoggedInGuard
+  ]
 })
 export class PagesModule {}

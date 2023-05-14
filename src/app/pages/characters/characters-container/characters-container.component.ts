@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CharactersSelectors } from '../../store/state/marvel/marvel.selectors';
-import { CharactersActions } from '../../store/state/marvel/marvel.actions';
+import { CharactersSelectors } from '../../store/state/character/marvel.selectors';
+import { CharactersActions } from '../../store/state/character/marvel.actions';
 
 @Component({
   selector: 'app-characters-container',

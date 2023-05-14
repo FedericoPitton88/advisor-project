@@ -54,6 +54,11 @@ export class DataAccessService {
     return null;
   }
 
+  isLoggedIn(){
+    const userDataString = localStorage.getItem('user');
+    return userDataString ? true : false;
+  }
+
   formatUser(data: AuthResponse) {
     const expirationDate = new Date(
       new Date().getTime() + +data.expiresIn * 1000
