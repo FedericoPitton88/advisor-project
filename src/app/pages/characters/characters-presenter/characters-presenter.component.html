@@ -1,0 +1,36 @@
+<!-- <app-loading-spinner *ngIf="loading"></app-loading-spinner> -->
+
+<div class="text-center" *ngIf="!loading">
+  <img
+    src="../../../../../assets/images/logomarvel.png"
+    width="250"
+    height="80"
+  />
+</div>
+<div class="grid p-mt-2" *ngIf="!loading">
+  <div class="col" *ngFor="let c of characters">
+      <p-card
+        [header]="c.name"
+        [style]="{
+          width: '180px',
+          background: '#343a40',
+          color: 'white',
+          height: '100%'
+        }"
+      >
+        <ng-template pTemplate="header">
+          <img
+            alt="Card"
+            [src]="c.thumbnail.path + '.' + c.thumbnail.extension"
+            style="padding: 10px; "
+          />
+        </ng-template>
+        <!-- <p style="color: white">
+          {{ c.description }}
+        </p> -->
+        <ng-template pTemplate="footer">
+          <p-button (click)="getCharacterDetail(c.id)" label="Details"></p-button>
+        </ng-template>
+      </p-card>
+  </div>
+</div>

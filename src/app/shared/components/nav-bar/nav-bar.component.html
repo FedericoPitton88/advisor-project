@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <ul class="navbar_list">
+    <div class="left">
+      <li class="navbar_item navbar_left">
+        <a class="navbar_link" routerLink="/">Home</a>
+      </li>
+      <li class="navbar_item navbar_left" *ngIf="!(isAuthenticated$ | async)">
+        <a class="navbar_link" routerLink="/auth/login">Login</a>
+      </li>
+      <li class="navbar_item navbar_left" *ngIf="!(isAuthenticated$ | async)">
+        <a class="navbar_link" routerLink="/auth/signup">Sign Up</a>
+      </li>
+      <li class="navbar_item navbar_left" *ngIf="(isAuthenticated$ | async)">
+        <a class="navbar_link" routerLink="/characters">Characters</a>
+      </li>
+      <li class="navbar_item navbar_left" *ngIf="(isAuthenticated$ | async)">
+        <a class="navbar_link" routerLink="/comics">Comics</a>
+      </li>
+    </div>
+    <li class="nav-item" *ngIf="(isAuthenticated$ | async)">
+      <a class="nav-link" href="#" (click)="onLogout($event)">Logout</a>
+    </li>
+  </ul>
+</nav>
