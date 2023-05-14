@@ -7,7 +7,7 @@ import { CharactersContainerComponent } from './characters/characters-container/
 import { CharactersPresenterComponent } from './characters/characters-presenter/characters-presenter.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { CharacterEffects } from './store/state/character/character.effects';
+import { CharacterEffects } from './store/state/marvel/marvel.effects';
 import { pagesReducer } from './store/state/page.reducer';
 import { PAGES_FEATURE_KEY } from './store/state/page.state';
 import { TableModule } from 'primeng/table';

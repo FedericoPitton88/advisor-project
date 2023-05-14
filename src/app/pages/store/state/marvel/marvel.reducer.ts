@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { ICharacterState } from './character.state';
-import { CharactersActions } from './character.actions';
+import { ICharacterState } from './marvel.state';
+import { CharactersActions } from './marvel.actions';
 
 const initialCharacterState: ICharacterState = {
   characters: null,

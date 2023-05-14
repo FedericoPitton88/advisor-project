@@ -6,7 +6,7 @@ import { AuthResponse } from 'src/app/interface/authResponse.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { PagesService } from 'src/app/pages/services/pages.service';
-import { CharactersActions } from './character.actions';
+import { CharactersActions } from './marvel.actions';
 
 @Injectable()
 export class CharacterEffects {
