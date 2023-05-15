@@ -18,6 +18,7 @@ import { ComicsContainerComponent } from './comics/comics-container/comics-conta
 import { ComicsPresenterComponent } from './comics/comics-presenter/comics-presenter.component';
 import { DialogModule } from 'primeng/dialog';
 import { LoggedInGuard } from '../auth/guards/logged-in.guard';
+import { ModalDetailComponent } from './characters/modal-detail/modal-detail.component';
 const routes: Routes = [
   {
     path: '',
@@ -38,7 +39,8 @@ const priemNgImports = [DialogModule, TableModule, ButtonModule, CardModule];
     CharactersPresenterComponent,
     ComicsContainerComponent,
     ComicsPresenterComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    ModalDetailComponent
   ],
   imports: [
     ...priemNgImports,

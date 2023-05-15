@@ -51,7 +51,7 @@ export class CharacterEffects {
   getComics$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CharactersActions.getComics),
-      exhaustMap((action) => {
+      exhaustMap(() => {
         return this.pagesService.getComics().pipe(
           map((comics: any) => {
             return CharactersActions.getComicsSuccess({ comics });

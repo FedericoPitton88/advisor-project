@@ -14,16 +14,25 @@ export class CharactersContainerComponent implements OnInit {
   characterDetail$ = this._store.select(CharactersSelectors.charactersDetail)
   loading$ = this._store.select(CharactersSelectors.loading)
 
+  showModal: boolean = false;
+
   constructor(private _store: Store) { }
 
   ngOnInit(): void {
     this._store.dispatch(CharactersActions.getCharacters());
     this.characterDetail$.subscribe((p) => {
       console.log(p);
+      p ? this.showModal = true : this.showModal = false;
     })
   }
 
   onGetCharacterDetail(event: string){
     this._store.dispatch(CharactersActions.getChatactersDetails({id: event}));
   }
+
+  onCloseModal(event: boolean){
+    this.showModal = event;
+  }
+
+
 }

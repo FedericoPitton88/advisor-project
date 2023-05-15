@@ -3,17 +3,17 @@ import { createAction, props } from '@ngrx/store';
 
 const charactersKey = '[Characters]';
 
-const getCharacters = createAction(`${charactersKey} Get All`);
+const getCharacters = createAction(`${charactersKey} Get All characters`);
 const getCharactersSuccess = createAction(
-  `${charactersKey} Get all Success`,
+  `${charactersKey} Get all characters Success`,
   props<{ characters: any | null }>()
 );
 const getCharactersFailure = createAction(
-  `${charactersKey} Get all Failure`,
+  `${charactersKey} Get all characters Failure`,
   props<{ error: HttpErrorResponse }>()
 );
 
-const getChatactersDetails = createAction(`${charactersKey} Get Detail`, props<{ id: string}>());
+const getChatactersDetails = createAction(`${charactersKey} Get character Detail`, props<{ id: string}>());
 const getCharactersDetailsSuccess = createAction(
   `${charactersKey} Get character details Success`,
   props<{ charactersDetail: any | null }>()
@@ -22,6 +22,7 @@ const getCharactersDetailFailure = createAction(
   `${charactersKey} Get character detail Failure`,
   props<{ error: HttpErrorResponse }>()
 );
+const eraseCharacterDetail = createAction(`${charactersKey} Erase character Detail`);
 
 const getComics = createAction(`${charactersKey} Get All comics`);
 const getComicsSuccess = createAction(
@@ -33,7 +34,7 @@ const getComicsFailure = createAction(
   props<{ error: HttpErrorResponse }>()
 );
 
-const getComicsDetails = createAction(`${charactersKey} Get Detail`, props<{ id: string}>());
+const getComicsDetails = createAction(`${charactersKey} Get comics Detail`, props<{ id: string}>());
 const getComicsDetailsSuccess = createAction(
   `${charactersKey} Get comics details Success`,
   props<{ comicsDetail: any | null }>()
@@ -47,7 +48,8 @@ export const PublicCharactersActions = {
   getCharacters,
   getChatactersDetails,
   getComics,
-  getComicsDetails
+  getComicsDetails,
+  eraseCharacterDetail
 };
 
 export const CharactersActions = {

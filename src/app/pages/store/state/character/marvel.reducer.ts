@@ -22,6 +22,10 @@ const reducer = createReducer(
     loading: false,
     charactersDetail: charactersDetail.data.results,
   })),
+  on(CharactersActions.eraseCharacterDetail, (state) => ({
+    ...state,
+    charactersDetail: null
+  })),
 
   on(CharactersActions.getComicsSuccess, (state, { comics }) => ({
     ...state,

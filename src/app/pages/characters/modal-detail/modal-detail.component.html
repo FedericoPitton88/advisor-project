@@ -1,0 +1,23 @@
+<div *ngIf="characterDetail">
+  <p-dialog
+    header="{{ characterDetail[0].name }}"
+    [(visible)]="showModal"
+    [style]="{ width: '50vw', height: '30vw' }"
+    [draggable]="false"
+    [modal]="true"
+    [resizable]="false"
+  >
+    <p>
+      {{ characterDetail[0].description }}
+    </p>
+
+    <ng-template pTemplate="footer">
+      <p-button
+        (click)="onCloseModal()"
+        label="Close"
+        styleClass="p-button-success"
+      >
+      </p-button>
+    </ng-template>
+  </p-dialog>
+</div>
