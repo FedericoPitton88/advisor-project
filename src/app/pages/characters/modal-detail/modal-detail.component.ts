@@ -8,7 +8,8 @@ import { Character } from 'src/app/interface/character.model';
 })
 export class ModalDetailComponent implements OnInit {
   @Input() showModal: boolean;
-  @Input() characterDetail: Character[];
+  @Input() characterDetail: Character[] | null;
+  @Input() characterComics: any[];
   @Output() closeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }

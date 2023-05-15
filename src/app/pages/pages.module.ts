@@ -7,7 +7,7 @@ import { CharactersContainerComponent } from './characters/characters-container/
 import { CharactersPresenterComponent } from './characters/characters-presenter/characters-presenter.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { CharacterEffects } from './store/state/character/marvel.effects';
+import { CharacterEffects } from './store/state/marvel/marvel.effects';
 import { pagesReducer } from './store/state/page.reducer';
 import { PAGES_FEATURE_KEY } from './store/state/page.state';
 import { TableModule } from 'primeng/table';
@@ -19,6 +19,7 @@ import { ComicsPresenterComponent } from './comics/comics-presenter/comics-prese
 import { DialogModule } from 'primeng/dialog';
 import { LoggedInGuard } from '../auth/guards/logged-in.guard';
 import { ModalDetailComponent } from './characters/modal-detail/modal-detail.component';
+import { CarouselModule } from 'primeng/carousel';
 const routes: Routes = [
   {
     path: '',
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
 ];
 
-const priemNgImports = [DialogModule, TableModule, ButtonModule, CardModule];
+const priemNgImports = [DialogModule, TableModule, ButtonModule, CardModule, CarouselModule];
 
 @NgModule({
   declarations: [
@@ -47,9 +48,6 @@ const priemNgImports = [DialogModule, TableModule, ButtonModule, CardModule];
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule,
-    ButtonModule,
-    CardModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(PAGES_FEATURE_KEY, pagesReducer),
     EffectsModule.forFeature([CharacterEffects]),

@@ -48,6 +48,22 @@ export class CharacterEffects {
     )
   );
 
+  getCharactersComics$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(CharactersActions.getChatactersComics),
+      exhaustMap((action) => {
+        return this.pagesService.getCharacterComics(action.id).pipe(
+          map((charactersComics: any) => {
+            return CharactersActions.getCharactersComicsSuccess({ charactersComics });
+          }),
+          catchError((error: HttpErrorResponse) => {
+            return of(CharactersActions.getCharactersFailure ({ error }));
+          })
+        );
+      })
+    )
+  );
+
   getComics$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CharactersActions.getComics),

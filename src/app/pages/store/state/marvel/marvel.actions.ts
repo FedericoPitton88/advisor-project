@@ -18,6 +18,12 @@ const getCharactersDetailsSuccess = createAction(
   `${charactersKey} Get character details Success`,
   props<{ charactersDetail: any | null }>()
 );
+
+const getChatactersComics = createAction(`${charactersKey} Get character Comics`, props<{ id: string}>());
+const getCharactersComicsSuccess = createAction(
+  `${charactersKey} Get character comics Success`,
+  props<{ charactersComics: any | null }>()
+);
 const getCharactersDetailFailure = createAction(
   `${charactersKey} Get character detail Failure`,
   props<{ error: HttpErrorResponse }>()
@@ -49,7 +55,8 @@ export const PublicCharactersActions = {
   getChatactersDetails,
   getComics,
   getComicsDetails,
-  eraseCharacterDetail
+  eraseCharacterDetail,
+  getChatactersComics
 };
 
 export const CharactersActions = {
@@ -61,5 +68,6 @@ export const CharactersActions = {
   getComicsSuccess,
   getComicsFailure,
   getComicsDetailsSuccess,
-  getComicsDetailFailure
+  getComicsDetailFailure,
+  getCharactersComicsSuccess
 };

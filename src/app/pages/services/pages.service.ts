@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as CryptoJS from 'crypto-js';
+import { Character } from 'src/app/interface/character.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +11,18 @@ export class PagesService {
   constructor(private httpClient: HttpClient) {}
   private baseUrl = 'https://gateway.marvel.com:443/v1/public';
 
-  getCharacters(): Observable<any> {
+  getCharacters() {
     const url = `${this.baseUrl}/characters?limit=100`;
     return this.httpClient.get(url);
   }
 
   getCharacterDetail(id: string) {
     const url = `${this.baseUrl}/characters/${id}`;
+    return this.httpClient.get(url);
+  }
+
+  getCharacterComics(id: string){
+    const url = `${this.baseUrl}/characters/${id}/comics`;
     return this.httpClient.get(url);
   }
 

@@ -9,6 +9,7 @@ const characterState = createSelector(
 
 const allCharacters = createSelector(characterState, (state) => state?.characters);
 const charactersDetail = createSelector(characterState, (state) => state?.charactersDetail);
+const charactersComics = createSelector(characterState, (state) => state?.charactersComics);
 
 const allComics = createSelector(characterState, (state) => state?.comics);
 const comicsDetail = createSelector(characterState, (state) => state?.comicsDetail);
@@ -19,5 +20,6 @@ export const CharactersSelectors = {
   allCharacters,
   charactersDetail,
   allComics,
-  comicsDetail
+  comicsDetail,
+  charactersComics
 };

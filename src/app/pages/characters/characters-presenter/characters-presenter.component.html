@@ -21,7 +21,7 @@
         <ng-template pTemplate="header">
           <img
             alt="Card"
-            [src]="c.thumbnail.path + '.' + c.thumbnail.extension"
+            src="{{c.thumbnail.path}}.{{c.thumbnail.extension}}"
             style="padding: 10px; "
           />
         </ng-template>

@@ -5,6 +5,7 @@ import { CharactersActions } from './marvel.actions';
 const initialCharacterState: ICharacterState = {
   characters: null,
   charactersDetail: null,
+  charactersComics: null,
   comics: null,
   comicsDetail: null,
   loading: true,
@@ -22,9 +23,14 @@ const reducer = createReducer(
     loading: false,
     charactersDetail: charactersDetail.data.results,
   })),
+  on(CharactersActions.getCharactersComicsSuccess, (state, { charactersComics }) => ({
+    ...state,
+    charactersComics: charactersComics.data.results,
+  })),
   on(CharactersActions.eraseCharacterDetail, (state) => ({
     ...state,
-    charactersDetail: null
+    charactersDetail: null,
+    charactersComics: null,
   })),
 
   on(CharactersActions.getComicsSuccess, (state, { comics }) => ({

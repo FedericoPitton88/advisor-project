@@ -1,15 +1,49 @@
-<div *ngIf="characterDetail">
+<div *ngIf="characterDetail && characterComics">
   <p-dialog
     header="{{ characterDetail[0].name }}"
     [(visible)]="showModal"
-    [style]="{ width: '50vw', height: '30vw' }"
+    [style]="{ width: '50vw', height: '50vw' }"
     [draggable]="false"
     [modal]="true"
     [resizable]="false"
   >
-    <p>
-      {{ characterDetail[0].description }}
-    </p>
+    <div style="display: flex; align-items: center">
+      <img
+        alt="{{characterDetail[0].name}}"
+        [src]="
+          characterDetail[0].thumbnail?.path +
+          '.' +
+          characterDetail[0].thumbnail?.extension
+        "
+        style="width: 20em; height: 20em"
+      />
+      <p class="align-p">
+        {{ characterDetail[0].description }}
+      </p>
+    </div>
+    <p-carousel
+      [value]="characterComics"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+    >
+      <ng-template let-comics pTemplate="item">
+        <div
+          class="border-1 surface-border border-round m-2 text-center py-5 px-3"
+        >
+          <div class="mb-3">
+            <img
+              src="{{ comics.thumbnail.path }}.{{ comics.thumbnail.extension }}"
+              [alt]="comics.title"
+              class="w-6 shadow-2"
+            />
+          </div>
+          <div>
+            <h4 class="mb-1">{{ comics.title }}</h4>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
 
     <ng-template pTemplate="footer">
       <p-button
